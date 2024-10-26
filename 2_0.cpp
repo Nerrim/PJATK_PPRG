@@ -5,7 +5,7 @@ int main() {
     int ilu;
     cout << "Podaj ilosc uczestnikow: ";
     cin >> ilu;
-    if(ilu==0) {cout<<"Organizator dostanie wszystko!";}
+    if(ilu==0) { cout<<"Organizator dostanie wszystko!"; return 0; }
     int pizza = 13;
     if(pizza-ilu == 0 || pizza-ilu < 0) {pizza=pizza+13;}
     else { 
