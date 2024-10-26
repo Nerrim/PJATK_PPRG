@@ -22,3 +22,4 @@ int main() {
     else { int wyn=pizza/ilu; cout<<"\nkazdy uczestnik dostanie:" << wyn <<" kawalki pizzy"; }
             
     return 0;
+}
