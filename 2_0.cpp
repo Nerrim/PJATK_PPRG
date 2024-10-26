@@ -7,15 +7,18 @@ int main() {
     cin >> ilu;
     if(ilu==0) { cout<<"Organizator dostanie wszystko!"; return 0; }
     int pizza = 13;
-    if(pizza-ilu == 0 || pizza-ilu < 0) {pizza=pizza+13;}
-    else { 
-        if(pizza%ilu != 0)
-        {int wyn1=pizza%ilu;
+    while(pizza-ilu == 0 || pizza-ilu < 0)
+    {
+        pizza=pizza+13;
+    } 
+     
+    if(pizza%ilu != 0)
+    {
+        int wyn1=pizza%ilu;
         int wyn2=pizza/ilu;
-        cout<<"\nkazdy uczestnik dostanie:" << wyn2 << "kawalkow, a organizator dostanie: " << wyn1 <<  " kawalkow\n";
+        cout<<"\nkazdy uczestnik dostanie:" << wyn2 << "kawalki pizzy, a organizator dostanie: " << wyn1 <<  " kawalki pizzy\n";     
+    } 
+    
+    else { int wyn=pizza/ilu; cout<<"\nkazdy uczestnik dostanie:" << wyn <<" kawalki pizzy"; }
             
-        } 
-        else {
-            int wyn=pizza/ilu; cout<<"\nkazdy uczestnik dostanie:" << wyn <<" kawalkow";}
-            }
     return 0;
