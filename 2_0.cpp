@@ -16,10 +16,10 @@ int main() {
     {
         int wyn1=pizza%ilu;
         int wyn2=pizza/ilu;
-        cout<<"\nkazdy uczestnik dostanie:" << wyn2 << "kawalki pizzy, a organizator dostanie: " << wyn1 <<  " kawalki pizzy\n";     
+        cout<<"\nkazdy uczestnik dostanie: " << wyn2 << " kawalki pizzy, a organizator dostanie: " << wyn1 <<  " kawalki pizzy\n";     
     } 
     
-    else { int wyn=pizza/ilu; cout<<"\nkazdy uczestnik dostanie:" << wyn <<" kawalki pizzy"; }
+    else { int wyn=pizza/ilu; cout<<"\nkazdy uczestnik dostanie: " << wyn <<" kawalki pizzy"; }
             
     return 0;
 }
