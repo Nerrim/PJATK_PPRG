@@ -26,32 +26,60 @@ int main() {
             cout << endl;
         }
 
+        cout << "\nMeaning of blocks: [#] - Wall | [@] - Goal | [$] - Start | [.] - Path \n";
         cout << "\n\nMovement: [L] - move left | [P] - move right | [D] - move down | [G] - move up || [W] - exit \n\n\n";
-
-        cout << ">";
-        cin >> u_control;
-
-        switch(u_control) {
-            case 'l':
-                old_h = pos_h;
-                pos_h = pos_h - 1;
-
-                if(maze[pos_v][pos_h] == '#') {
-                    pos_h = pos_h + 1;
+        if(k==1){
+            cout << "Your first move! Go down!\n";
+            cout << ">";
+            cin >> u_control;
+            switch(u_control) {
+                case 'd':
+                    old_v = pos_v;
+                    pos_v = pos_v + 1;
+                    if(maze[pos_v][pos_h] == '#' || maze[pos_v][pos_h] == '$') {
+                        pos_v = pos_v - 1;
+                        k--;
+                        break;
+                    }
+                    else {
+                        maze[pos_v][pos_h] = '&';
+                        maze[old_v][pos_h] = '.';
+                    }
+                    break;
+                    //-------------------//
+                default:
+                    k--;
                     break;
                 }
-                else {
-                    maze[pos_v][pos_h] = '&';
-                    maze[pos_v][old_h] = '.';
-                }
-                break;
-                //-------------------//
+            }
+            cout << ">";
+            cin >> u_control;
+            switch(u_control) {
+                case 'l':
+                    if(k<=1) {
+                        break;
+                    }
+                    old_h = pos_h;
+                    pos_h = pos_h - 1;
+
+                    if(maze[pos_v][pos_h] == '#' || maze[pos_v][pos_h] == '$') {
+                        pos_h = pos_h + 1;
+                        k--;
+                        break;
+                    }
+                    else {
+                        maze[pos_v][pos_h] = '&';
+                        maze[pos_v][old_h] = '.';
+                    }
+                    break;
+                    //-------------------//
             case 'p':
                 old_h = pos_h;
                 pos_h = pos_h + 1;
 
-                if(maze[pos_v][pos_h] == '#') {
+                if(maze[pos_v][pos_h] == '#' || maze[pos_v][pos_h] == '$') {
                     pos_h = pos_h - 1;
+                    k--;
                     break;
                 }
                 else {
@@ -63,8 +91,9 @@ int main() {
             case 'd':
                 old_v = pos_v;
                 pos_v = pos_v + 1;
-                if(maze[pos_v][pos_h] == '#') {
+                if(maze[pos_v][pos_h] == '#' || maze[pos_v][pos_h] == '$') {
                     pos_v = pos_v - 1;
+                    k--;
                     break;
                 }
                 else {
@@ -76,8 +105,9 @@ int main() {
             case 'g':
                 old_v = pos_v;
                 pos_v = pos_v - 1;
-                if(maze[pos_v][pos_h] == '#') {
+                if(maze[pos_v][pos_h] == '#' || maze[pos_v][pos_h] == '$') {
                     pos_v = pos_v + 1;
+                    k--;
                     break;
                 }
                 else {
@@ -91,7 +121,7 @@ int main() {
         }
 
          cout << "\033[2J\033[1;1H";
-         maze[0][10]='#';
+         maze[0][10]='$';
          k++;
     }
 
